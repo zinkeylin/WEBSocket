@@ -76,7 +76,6 @@ func ws(w http.ResponseWriter, r *http.Request) {
 	for i := 0; i < params.Limits; i++ {
 		// читаем число из канала
 		num := <-out
-		fmt.Println(num)
 		// отправка числа на frontend
 		err = conn.WriteMessage(websocket.TextMessage, []byte(strconv.Itoa(num)))
 		if err != nil {
